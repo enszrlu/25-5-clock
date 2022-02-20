@@ -158,7 +158,7 @@ class App extends React.Component {
       if (this.state.status != "Pause") {
         this.handleTimer();
       }
-    }, 10);
+    }, 1000);
   }
 
   render() {
