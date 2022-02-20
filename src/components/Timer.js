@@ -1,40 +1,35 @@
-import { useTimer } from 'react-timer-hook';
+import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
+import { VscDebugPause, VscDebugStart, VscDebugRestart} from 'react-icons/vsc';
 
-export default function MyTimer({ expiryTimestamp, expiryFunction, timerDuration }) {
-    const {
-      seconds,
-      minutes,
-      hours,
-      days,
-      isRunning,
-      start,
-      pause,
-      resume,
-      restart,
-    } = useTimer({ expiryTimestamp, onExpire: () => {
-        const time = new Date(); 
-        time.setSeconds(time.getSeconds() + timerDuration);
-        expiryFunction();
-        restart(time);
-        return;
-        } });
+export default function Timer(props) {
     return (
-      <div style={{textAlign: 'center'}}>
-        <h1>react-timer-hook </h1>
-        <p>Timer Demo</p>
-        <div style={{fontSize: '100px'}}>
-          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+      <div>
+        <h1>25 + 5 Clock </h1>
+        <div>
+            <div>
+                <h2 id="break-label">Break Length</h2>
+                <div>
+                    <button id="break-increment" onClick={props.increaseBreakLength}><AiOutlineArrowUp /></button>
+                    <h2 id="break-length">{props.breakLength}</h2>
+                    <button id="break-decrement" onClick={props.decreaseBreakLength}><AiOutlineArrowDown /></button>
+                </div>
+            </div>
+            <div>
+                <h2 id="session-label">Session Length</h2>
+                <div>
+                    <button id="session-increment" onClick={props.increaseSessionLength}><AiOutlineArrowUp /></button>
+                    <h2 id="session-length">{props.sessionLength}</h2>
+                    <button id="session-decrement" onClick={props.decreaseSessionLength}><AiOutlineArrowDown /></button>
+                </div>
+            </div>
         </div>
-        <p>{isRunning ? 'Running' : 'Not running'}</p>
-        <button onClick={start}>Start</button>
-        <button onClick={pause}>Pause</button>
-        <button onClick={resume}>Resume</button>
-        <button onClick={() => {
-          // Restarts to 5 minutes timer
-          const time = new Date();
-          time.setSeconds(time.getSeconds() + 300);
-          restart(time)
-        }}>Restart</button>
+        <div className={props.status}>
+            <h2 id="timer-label">{props.state}</h2>
+            <div id="time-left"><span>{props.minutes < 10 ? "0"+props.minutes : props.minutes}</span>:<span>{props.seconds < 10 ? "0"+props.seconds : props.seconds}</span></div>
+        </div>
+        <button onClick={props.status == "Pause" ? props.start : props.pause} id="start_stop"> <VscDebugStart /> <VscDebugPause /></button>
+        <button onClick={props.restart} id="reset"><VscDebugRestart /></button>
+        <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
       </div>
     );
 }
