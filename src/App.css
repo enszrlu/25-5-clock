@@ -1,3 +1,104 @@
+html, body {
+  background-color: #1e555c;
+  color: white;
+}
+#timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-align: center;
+  gap: 10px;
+}
+
+#timer > h1 {
+  font-size: 50px;
+  line-height: 50px;
+  margin: 0px;
+}
+
+#lenght-cont {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 25%;
+  margin-right: 25%;
+  line-height: 30px;
+  font-weight: 100;
+}
+.length-sub-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+  gap: 10px;
+}
+.length-sub-cont > h2 {
+  font-weight: 400;
+  margin: 0px;
+}
+
+.lenght-controllers {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  line-height: 20px;
+}
+.length-label {
+  font-weight: 200;
+  line-height: 30px;
+  margin: auto;
+}
+.length-button {
+  height: 30px;
+  width: 30px;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+#timer-div {
+  border: 7px #13353a solid;
+  border-radius: 30px;
+  padding: 0 50px;
+  font-family: digital;
+}
+#timer-div > h2{
+  font-size: 30px;
+  line-height: 30px;
+}
+#time-left {
+  font-size: 100px;
+  line-height: 100px;
+}
+#action-buttons-div {
+  display: flex;
+  
+}
+
+#start_stop {
+  height: 40px;
+  width: 80px;
+  font-size: 20px;
+  line-height: 20px;
+}
+#reset {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  line-height: 20px;
+}
 .SessionRed, .BreakRed {
   color: red
 }
